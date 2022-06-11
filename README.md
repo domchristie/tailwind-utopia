@@ -146,7 +146,7 @@ The plugin has the following options to configure the style of classes generated
     <td>prefix</td><td>'fl-'</td>
   <tr>
   <tr>
-    <td>baseKey/td><td>'base'</td>
+    <td>baseKey</td><td>'base'</td>
   <tr>
 </table>
 
