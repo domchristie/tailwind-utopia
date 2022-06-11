@@ -12,7 +12,9 @@ This plugin essentially recreates the calculators from utopia.fyi within your Ta
 * [Fluid space calculator](https://utopia.fyi/space/calculator)
 
 ## Installation
-`npm install -D github:domchristie/tailwind-utopia`
+```
+npm install -D github:domchristie/tailwind-utopia
+```
 
 ## Getting Started
 Require the plugin in your `tailwind.config.js` file and reference it in the plugins section.
