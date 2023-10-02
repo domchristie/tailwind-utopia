@@ -7,11 +7,14 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx standard"
   },
   "author": "Chris Pymm",
   "license": "MIT",
   "peerDependencies": {
     "tailwindcss": "^3"
+  },
+  "devDependencies": {
+    "standard": "^17.1.0"
   }
 }
