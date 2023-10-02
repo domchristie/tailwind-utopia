@@ -1,37 +1,38 @@
 # Tailwind Utopia
-A TailwindCSS plugin to generate interpolated fluid typographic and spacing scales as created by the generator [utopia.fyi](https://utopia.fyi).
 
-If you haven't already, visit [utopia.fyi](https://utopia.fyi) and familiarize yourself with the concepts.
-* [Designing with fluid type scales](https://utopia.fyi/blog/designing-with-fluid-type-scales/)
-* [CSS only fluid scales](https://utopia.fyi/blog/css-modular-scales/)
-* [Designing with fluid space palette](https://utopia.fyi/blog/designing-with-a-fluid-space-palette)
-* [Painting with fluid space palette](https://utopia.fyi/blog/painting-with-a-fluid-space-palette)
+> Elegantly scale type and space without breakpoints
+> [utopia.fyi](https://utopia.fyi)
 
-This plugin essentially recreates the calculators from utopia.fyi within your Tailwind config.
-* [Fluid type calculator](https://utopia.fyi/type/calculator)
-* [Fluid space calculator](https://utopia.fyi/space/calculator)
+A TailwindCSS plugin that generates fluid font-size and spacing utilities:
+
+```html
+<h1 class="text-fl-3xl px-fl-2xs-md">Example</h1>
+```
+- `text-fl-3xl`: sizes the text to `3xl`
+- `px-fl-2xs-md`: applies horizontal padding; `2xs` for the smallest devices, interpolated up to `md` for the largest
 
 ## Installation
 ```
-npm install -D github:domchristie/tailwind-utopia
+npm install -D @domchristie/tailwind-utopia
 ```
 
 ## Getting Started
 Require the plugin in your `tailwind.config.js` file and reference it in the plugins section.
-```
-module.exports = {
+```js
+// tailwind.config.js
+export default {
   theme: {
-  ...
+    extend: {
+      // ...
+    }
   },
-  plugins: [
-    require('tailwind-utopia')
-  ]
+  plugins: [require('tailwind-utopia')]
 }
 ```
 
-Out of the box this will generate both a fluid type scale and a fluid space scale with the same defaults as the Utopia calculators:
-* A type scale with 2 negative steps and 5 positive steps from a 21px base size at the minumum screen size of 320px up to a 24px base size at the maximum screen size of 1140px, with the modular scale being 1.2 (minor third) at the minimum screen size and 1.25 (major third) at the maximum screen size.
-* A fluid spacing scale with t-shirt sizes from 3xs up to 3xl, and utilities for each space-value pair in the scale
+By default, this generates a fluid type scale and a fluid space scale with the same defaults as the Utopia calculators:
+* A **type scale** with 2 negative steps and 5 positive steps from a 21px base size at the minumum screen size of 320px up to a 24px base size at the maximum screen size of 1140px, with the modular scale being 1.2 (minor third) at the minimum screen size and 1.25 (major third) at the maximum screen size.
+* A **spacing scale** with t-shirt sizes from 3xs up to 3xl, and utilities for each space-value pair in the scale
 
 ### Typographic Scale
 The default font-size utility classes are as follows:
@@ -59,6 +60,7 @@ The default spacing utility classes are as follows:
 <utility>-fl-2xl
 <utility>-fl-3xl
 ```
+These work with any utility classes that depend on the the [`spacing` configuration](https://tailwindcss.com/docs/customizing-spacing), i.e. `padding`, `margin`, `width`, `height`, `maxHeight`, `gap`, `inset`, `space`, `translate`, `scrollMargin`, and `scrollPadding`.
 
 Examples:
 ```
@@ -74,40 +76,50 @@ m-fl-sm-lg // sm - lg step
 ```
 
 ## Customization
-The plugin is a standard Tailwind plugin, with its defaults set using a theme object.  So all the defaults can be extended within the `extend` entries within your Tailwind config file.
+The plugin is a standard Tailwind plugin, with its defaults set using a theme object. So all the defaults can be extended within your Tailwind config file:
+
+```js
+// tailwind.config.js
+export default {
+  theme: {
+    extend: {
+      utopia: {
+        // customization
+      }
+    }
+  }
+}
+```
 
 Below is the default theme used by the plugin:
 ```
-utopia: {
-  minWidth: 320,
-  minSize: 21,
-  minScale: 1.2,
-  maxWidth: 1140,
-  maxSize: 24,
-  maxScale: 1.25,
-  fontSize: {
-    'xs': 'inherit',
-    'sm': 'inherit',
-    'base': 1.4,
-    'lg': 1.33,
-    'xl': 1.2,
-    '2xl': 1.11,
-    '3xl': 1,
-    '4xl': 1
-  },
-  spacing: {
-    '3xs': 0.25,
-    '2xs': 0.5,
-    'xs': 0.75,
-    'sm': 1,
-    'md': 1.5,
-    'lg': 2,
-    'xl': 3,
-    '2xl': 4,
-    '3xl': 6
-  }
+minWidth: 320,
+minSize: 21,
+minScale: 1.2,
+maxWidth: 1140,
+maxSize: 24,
+maxScale: 1.25,
+fontSize: {
+  xs: 'inherit',
+  sm: 'inherit',
+  base: 1.4,
+  lg: 1.33,
+  xl: 1.2,
+  '2xl': 1.11,
+  '3xl': 1,
+  '4xl': 1
+},
+spacing: {
+  '3xs': 0.25,
+  '2xs': 0.5,
+  xs: 0.75,
+  sm: 1,
+  md: 1.5,
+  lg: 2,
+  xl: 3,
+  '2xl': 4,
+  '3xl': 6
 }
-
 ```
 * **minWidth**: the screen size the scale starts at in px (unitless integer)
 * **minSize**: the base font size at the minScreen size (unitless integer)
@@ -126,14 +138,17 @@ utopia: {
 * **spacing**: the names and multipliers for the spacing scale
 
 You can reference other parts of your theme config if desired (e.g. for using entries from your screens config).  An example customization could look as follows:
-```
-{
-  extend: {
-    utopia: theme => ({
-      minWidth: theme('screens.sm'),
-      maxWidth: theme('screens.xl')
-    }),
-  },
+```js
+// tailwind.config.js
+export default {
+  theme: {
+    extend: {
+      utopia: theme => ({
+        minWidth: theme('screens.sm'),
+        maxWidth: theme('screens.xl')
+      })
+    }
+  }
 }
 ```
 
@@ -152,10 +167,11 @@ The plugin has the following options to configure the style of classes generated
   <tr>
 </table>
 
-To call the plugin with options you simply change how you call the plugin in the tailwind config file.
-```
-module.exports = {
-  ...
+Apply configuration when calling the plugin in the Tailwind config:
+```js
+// tailwind.config.js
+export default {
+  // …
   plugins: [
     require('tailwind-utopia')({
       prefix: 'f-'
@@ -165,7 +181,7 @@ module.exports = {
 ```
 
 #### prefix
-By default, this plugin will prefix all of the utility selectors with a prefix of `fl-`.  You can customise this to whatever you choose with this config option. This is the default as it avoids collision with Tailwind's base (static) text sizes.
+The string that prefixes the utility class's value.
 
 #### baseKey
 Internally, the plugin needs to know which steps in your scale are negative and which are positive. This is done by identifying the base step in your scale. Any entries in the sizes array before the base are considered negative, all those after are positive.
@@ -174,5 +190,5 @@ Internally, the plugin needs to know which steps in your scale are negative and 
 Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Acknowledgements
-Full credit for Utopia and the interpolated fluid type scales generated by this
-plugin goes to [James Gilyead](https://twitter.com/j98) and [Trys Mudford](https://twitter.com/trysmudford).
+Utopia: [James Gilyead](https://www.hustlersquad.net/) & [Trys Mudford](https://www.trysmudford.com/)
+Original Tailwind Utopia plugin: [Chris Pymm](https://www.chrispymm.co.uk/) & [CWS Digital](https://cwsdigital.com/)
