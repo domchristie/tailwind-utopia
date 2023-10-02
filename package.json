@@ -1,6 +1,6 @@
 {
   "name": "@domchristie/tailwind-utopia",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A Tailwind CSS plugin to generate utility classes for interpolated fluid type and space scales.",
   "main": "index.js",
   "directories": {
@@ -10,7 +10,14 @@
     "test": "npx standard"
   },
   "author": "Dom Christie",
-  "contributors": [{ "name": "Dom Christie" }, { "name": "Chris Pymm" }],
+  "contributors": [
+    {
+      "name": "Dom Christie"
+    },
+    {
+      "name": "Chris Pymm"
+    }
+  ],
   "license": "MIT",
   "peerDependencies": {
     "tailwindcss": "^3"
