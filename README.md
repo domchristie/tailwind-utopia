@@ -26,7 +26,7 @@ export default {
       // ...
     }
   },
-  plugins: [require('tailwind-utopia')]
+  plugins: [require('@domchristie/tailwind-utopia')]
 }
 ```
 
@@ -173,7 +173,7 @@ Apply configuration when calling the plugin in the Tailwind config:
 export default {
   // …
   plugins: [
-    require('tailwind-utopia')({
+    require('@domchristie/tailwind-utopia')({
       prefix: 'f-'
     })
   ]
