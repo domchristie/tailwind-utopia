@@ -1,6 +1,6 @@
 # Tailwind Utopia
 
-> Elegantly scale type and space without breakpoints
+> Elegantly scale type and space without breakpoints \
 > [utopia.fyi](https://utopia.fyi)
 
 A TailwindCSS plugin that generates fluid font-size and spacing utilities:
@@ -20,7 +20,7 @@ npm install -D @domchristie/tailwind-utopia
 Require the plugin in your `tailwind.config.js` file and reference it in the plugins section.
 ```js
 // tailwind.config.js
-export default {
+module.exports = {
   theme: {
     extend: {
       // ...
@@ -80,7 +80,7 @@ The plugin is a standard Tailwind plugin, with its defaults set using a theme ob
 
 ```js
 // tailwind.config.js
-export default {
+module.exports = {
   theme: {
     extend: {
       utopia: {
@@ -140,7 +140,7 @@ spacing: {
 You can reference other parts of your theme config if desired (e.g. for using entries from your screens config).  An example customization could look as follows:
 ```js
 // tailwind.config.js
-export default {
+module.exports = {
   theme: {
     extend: {
       utopia: theme => ({
@@ -170,7 +170,7 @@ The plugin has the following options to configure the style of classes generated
 Apply configuration when calling the plugin in the Tailwind config:
 ```js
 // tailwind.config.js
-export default {
+module.exports = {
   // …
   plugins: [
     require('@domchristie/tailwind-utopia')({
@@ -190,5 +190,5 @@ Internally, the plugin needs to know which steps in your scale are negative and 
 Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Acknowledgements
-Utopia: [James Gilyead](https://www.hustlersquad.net/) & [Trys Mudford](https://www.trysmudford.com/)
+Utopia: [James Gilyead](https://www.hustlersquad.net/) & [Trys Mudford](https://www.trysmudford.com/) \
 Original Tailwind Utopia plugin: [Chris Pymm](https://www.chrispymm.co.uk/) & [CWS Digital](https://cwsdigital.com/)
