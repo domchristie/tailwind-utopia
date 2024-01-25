@@ -31,7 +31,7 @@ module.exports = {
 ```
 
 By default, this generates a fluid type scale and a fluid space scale with the same defaults as the Utopia calculators:
-* A **type scale** with 2 negative steps and 5 positive steps from a 21px base size at the minumum screen size of 320px up to a 24px base size at the maximum screen size of 1140px, with the modular scale being 1.2 (minor third) at the minimum screen size and 1.25 (major third) at the maximum screen size.
+* A **type scale** with 2 negative steps and 5 positive steps from a 21px base size at the minimum screen size of 320px up to a 24px base size at the maximum screen size of 1140px, with the modular scale being 1.2 (minor third) at the minimum screen size and 1.25 (major third) at the maximum screen size.
 * A **spacing scale** with t-shirt sizes from 3xs up to 3xl, and utilities for each space-value pair in the scale
 
 ### Typographic Scale
