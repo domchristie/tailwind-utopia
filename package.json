@@ -1,6 +1,6 @@
 {
   "name": "@domchristie/tailwind-utopia",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A Tailwind CSS plugin to generate utility classes for interpolated fluid type and space scales.",
   "main": "index.js",
   "directories": {
