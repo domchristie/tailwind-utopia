@@ -124,7 +124,7 @@ spacing: {
 * **minWidth**: the screen size the scale starts at in px (unitless integer)
 * **minSize**: the base font size at the minScreen size (unitless integer)
 * **minScale**: the modular scale to use for type sizes at minScreen size (decimal)
-* **minScreen**: the screen size at which the scale stops increasing in px (unitless integer)
+* **maxWidth**: the screen size at which the scale stops increasing in px (unitless integer)
 * **maxSize**: the base font size a the maxScreen size (unitless integer)
 * **maxScale**: the modular scale to use at the maxScreen size (decimal)
 * **fontSize**: the names, line-heights, and min/max text size configuration. The key determines the class name that will be generated. A non-object value will be used for the line-height. Alternatively, an object can configure the `lineHeight` and `min`/`max` values. For example:
